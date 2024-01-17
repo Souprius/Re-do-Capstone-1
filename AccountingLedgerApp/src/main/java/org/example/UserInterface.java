@@ -106,7 +106,8 @@ public void displayReportingScreen(){
         System.out.println("3 - Year to Date");
         System.out.println("4 - Previous Year");
         System.out.println("5 - Search by Vendor");
-        System.out.println("0 - Back to Report page");
+        System.out.println("6 - Back to Report page");
+        System.out.println("7 - Back to Ledger");
         int userInput3 = scanner.nextInt();
 
         try {
@@ -131,10 +132,14 @@ public void displayReportingScreen(){
 
                     reportings.searchVendor(selection);
                     break;
-                case 0:
+                case 6:
                     displayReportingScreen();
                     reporting = false;
                     break;
+
+                case 7:
+                    displayLedgerScreen();
+                    reporting = false;
                 default:
                     System.out.println("Please select a valid option.");
                     break;
