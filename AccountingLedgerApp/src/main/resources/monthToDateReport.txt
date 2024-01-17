@@ -1,0 +1,30 @@
+date|time|description|vendor|amount
+2023-04-15|10:13:25|ergonomic keyboard|Amazon|-89.5
+2023-04-15|11:15:00|Invoice 1001 paid|Joe|1500.0
+2023-03-12|14:30:45|Grocery shopping|Local Market|-45.75
+2023-03-11|08:20:10|Salary deposit|ABC Company|3000.0
+2023-05-20|15:45:30|Dinner with friends|Restaurant XYZ|-120.0
+2023-06-27|09:55:15|Electricity bill payment|Utility Company|-75.5
+2023-10-31|13:40:20|Online book purchase|Bookstore Online|20.95
+2021-04-18|12:10:05|Gasoline purchase|Shell Gas Station|-40.25
+2022-04-18|17:30:15|Movie ticket|Cinema Paradise|-15.0
+2021-05-22|08:20:10|Salary deposit|ABC Company|4500.0
+2020-04-19|08:45:00|Coffee and muffin|Cafe Latte|-7.5
+2020-04-19|14:20:30|Monthly subscription|Streaming Service|-12.99
+2020-04-20|09:30:45|Lunch with colleagues|The Bistro|-28.75
+2022-07-15|08:20:10|Salary deposit|ABC Company|7220.0
+2022-04-20|16:55:10|Phone bill payment|Telecom Company|-55.0
+2022-04-21|11:25:55|Home office chair|Furniture World|-299.99
+2022-04-21|18:40:25|Invoice 913 paid|Joe|650.5
+2021-04-22|13:15:40|Bookstore visit|Book Haven|-32.75
+2021-04-22|19:20:00|Music concert tickets|Concert Arena|-75.0
+2020-02-15|08:20:10|Salary deposit|ABC Company|8452.0
+2023-08-15|08:30:20|Back-to-school supplies|Stationery Mart|-75.25
+2023-08-18|14:45:00|Airline ticket purchase|Sky Airlines|-350.0
+2023-08-20|10:20:15|Invoice 1103 paid|Joe|5000.0
+2023-09-02|12:55:30|Dinner with family|Restaurant ABC|-80.5
+2023-09-10|09:40:25|Monthly rent payment|Apartment Complex|-1400.0
+2023-09-15|16:30:10|Shopping for fall clothes|Fashion Outlet|-120.75
+2023-10-05|17:15:55|Car insurance premium|Insurance Co.|-180.0
+2023-10-08|11:20:40|Weekend getaway|Hotel Resort|-300.0
+2023-10-12|13:35:15|Home appliance repair|Tech Repairs|-85.99
