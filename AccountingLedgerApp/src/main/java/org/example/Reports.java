@@ -2,6 +2,9 @@ package org.example;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 
 public class Reports {
@@ -9,21 +12,17 @@ public class Reports {
     //previous month
     //year to date
     //previous year
-Ledger l = new Ledger();
-    public void monthToDate(){
-        ArrayList<Transactions> monthreport = l.loadTransactions();
-        try{
-            LocalDate mTD = LocalDate.now();
-            for(Transactions t : monthreport){
-                if(mTD.isBefore(LocalDate.parse(t.getDate()))){
-                    System.out.printf("Date: %s  | Time: %s  | Description: %s  | Vendor: %s  | Amount: %s \n",
-                            t.getDate(), t.getTime(), t.getDesc(), t.getVendor(), t.getAmount());
-                }
-            }
-        } catch(Exception x){
-            System.out.println("Unable to generate report. Let's Try again.");
-        }
+    static Ledger l = new Ledger();
+    public static void monthToDate() {
+        //declaring the list-
+        List<Transactions> transactions = l.loadTransactions();
 
+        // Sort transactions by date using Collections.sort
+        transactions.sort(Comparator.comparing(Transactions::getDate));
+        // Display the sorted transactions
+        for (Transactions transaction : transactions) {
+            System.out.println(transaction);
+        }
     }
 
     public void previousMonth(){
