@@ -1,7 +1,10 @@
 package org.example;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class Reports {
@@ -10,74 +13,116 @@ public class Reports {
     //year to date
     //previous year
 Ledger l = new Ledger();
-    public void monthToDate(){
+    public void monthToDate() {
         ArrayList<Transactions> monthreport = l.loadTransactions();
-        try{
-            LocalDate mTD = LocalDate.now();
-            for(Transactions t : monthreport){
-                if(mTD.isBefore(LocalDate.parse(t.getDate()))){
-                    System.out.printf("Date: %s  | Time: %s  | Description: %s  | Vendor: %s  | Amount: %s \n",
-                            t.getDate(), t.getTime(), t.getDesc(), t.getVendor(), t.getAmount());
+        try {
+            FileInputStream fileInputStream = new FileInputStream("src/main/resources/transactions.csv");
+            Scanner banner = new Scanner(fileInputStream);
+
+            String input;
+
+            while (banner.hasNextLine()) {
+                input = banner.nextLine();
+                // Split the CSV line into parts (assuming a comma-separated format)
+                String[] transaction = input.split("\\|");
+                if (transaction.length >= 2) {
+                    String transactionDate = transaction[0]; // Assuming the date is in the first column
+
+                    // Assuming the date format is "yyyy-MM-dd", e.g., "2023-10-26"
+                    if (transactionDate.matches("\\d{4}-01-\\d{2}")) {
+                        System.out.println(input);
+                    }
                 }
             }
-        } catch(Exception x){
-            System.out.println("Unable to generate report. Let's Try again.");
-        }
 
+        } catch (FileNotFoundException ex) {
+            System.out.println("Could not find the file.");
+        }
     }
 
-    public void previousMonth(){
+    public void previousMonth() {
         ArrayList<Transactions> previousreport = l.loadTransactions();
 
-        try{
-            LocalDate previous = LocalDate.now().minusDays(30);
-            for(Transactions t : previousreport){
-                if(previous.isBefore(LocalDate.parse(t.getDate())) && !previous.isAfter(LocalDate.now())){
-                    System.out.printf("Date: %s  | Time: %s  | Description: %s  | Vendor: %s  | Amount: %s \n",
-                            t.getDate(), t.getTime(), t.getDesc(), t.getVendor(), t.getAmount());
+        try {
+            FileInputStream fileInputStream = new FileInputStream("src/main/resources/transactions.csv");
+            Scanner banner = new Scanner(fileInputStream);
+
+            String input;
+
+            while (banner.hasNextLine()) {
+                input = banner.nextLine();
+                // Split the CSV line into parts (assuming a comma-separated format)
+                String[] transaction = input.split("\\|");
+                if (transaction.length >= 2) {
+                    String transactionDate = transaction[0]; // Assuming the date is in the first column
+
+                    // Assuming the date format is "yyyy-MM-dd", e.g., "2023-10-26"
+                    if (transactionDate.matches("\\d{4}-12-\\d{2}")) {
+                        System.out.println(input);
+                    }
                 }
             }
 
-        } catch (Exception i){
-            System.out.println("Unable to generate report. Let's Try again.");
+        } catch (FileNotFoundException ex) {
+            System.out.println("Could not find the file.");
         }
-
     }
 
-    public void yearToDate(){
+    public void yearToDate() {
         ArrayList<Transactions> yearreport = l.loadTransactions();
 
         try {
-            LocalDate ytd = LocalDate.now().minusYears(1);
-            for(Transactions t : yearreport){
-                if(ytd.isBefore(LocalDate.parse(t.getDate())) && !ytd.isAfter(LocalDate.now())){
-                    System.out.printf("Date: %s  | Time: %s  | Description: %s  | Vendor: %s  | Amount: %s \n",
-                            t.getDate(), t.getTime(), t.getDesc(), t.getVendor(), t.getAmount());
+            FileInputStream fileInputStream = new FileInputStream("src/main/resources/transactions.csv");
+            Scanner banner = new Scanner(fileInputStream);
+
+            String input;
+
+            while (banner.hasNextLine()) {
+                input = banner.nextLine();
+                // Split the CSV line into parts (assuming a comma-separated format)
+                String[] transaction = input.split("\\|");
+                if (transaction.length >= 2) {
+                    String transactionDate = transaction[0]; // Assuming the date is in the first column
+
+                    // Assuming the date format is "yyyy-MM-dd", e.g., "2023-10-26"
+                    if (transactionDate.matches("2024-\\d{2}-\\d{2}")) {
+                        System.out.println(input);
+                    }
                 }
             }
 
-        } catch (Exception ex){
-            System.out.println("Unable to generate report. Let's Try again.");
+        } catch (FileNotFoundException ex) {
+            System.out.println("Could not find the file.");
         }
     }
 
-    public void previousYear(){
+
+    public void previousYear() {
         ArrayList<Transactions> previousyear = l.loadTransactions();
 
-        try{
-            LocalDate py = LocalDate.now().minusYears(1);
-            for(Transactions t: previousyear){
-                LocalDate getDate = LocalDate.parse(t.getDate());
-                if(py.isBefore(LocalDate.now()) && getDate.isBefore(LocalDate.now())){
-                    System.out.printf("Date: %s  | Time: %s  | Description: %s  | Vendor: %s  | Amount: %s \n",
-                            t.getDate(), t.getTime(), t.getDesc(), t.getVendor(), t.getAmount());
+        try {
+            FileInputStream fileInputStream = new FileInputStream("src/main/resources/transactions.csv");
+            Scanner banner = new Scanner(fileInputStream);
+
+            String input;
+
+            while (banner.hasNextLine()) {
+                input = banner.nextLine();
+                // Split the CSV line into parts (assuming a comma-separated format)
+                String[] transaction = input.split("\\|");
+                if (transaction.length >= 2) {
+                    String transactionDate = transaction[0]; // Assuming the date is in the first column
+
+                    // Assuming the date format is "yyyy-MM-dd", e.g., "2023-10-26"
+                    if (transactionDate.matches("2023-\\d{2}-\\d{2}")) {
+                        System.out.println(input);
+                    }
                 }
             }
 
-        }catch(Exception y){
-            System.out.println("Unable to generate report. Let's Try again.");
+        } catch (FileNotFoundException ex) {
+            System.out.println("Could not find the file.");
         }
-
     }
 
     //search by vendor
@@ -95,5 +140,58 @@ Ledger l = new Ledger();
             System.out.println("Unable to generate report. Let's try again.");
         }
 
+    }
+
+    // Custom Search
+    public void customSearch() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter Start Date (YYYY-MM-DD): ");
+        String startDateInput = scanner.nextLine();
+        LocalDate startDate = startDateInput.isEmpty() ? null : LocalDate.parse(startDateInput);
+
+        System.out.println("Enter End Date (YYYY-MM-DD): ");
+        String endDateInput = scanner.nextLine();
+        LocalDate endDate = endDateInput.isEmpty() ? null : LocalDate.parse(endDateInput);
+
+        System.out.println("Enter Description: ");
+        String description = scanner.nextLine();
+
+        System.out.println("Enter Vendor: ");
+        String vendor = scanner.nextLine();
+
+        System.out.println("Enter Amount: ");
+        double amount = 0.0;
+        try {
+            String amountInput = scanner.nextLine();
+            if (!amountInput.isEmpty()) {
+                amount = Double.parseDouble(amountInput);
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid amount format. Skipping amount filter.");
+        }
+
+        ArrayList<Transactions> customReport = l.loadTransactions();
+
+        try {
+            for (Transactions t : customReport) {
+                LocalDate transactionDate = LocalDate.parse(t.getDate());
+
+                boolean dateInRange = (startDate == null || transactionDate.isEqual(startDate) || transactionDate.isAfter(startDate))
+                        && (endDate == null || transactionDate.isEqual(endDate) || transactionDate.isBefore(endDate));
+
+                boolean matchesDescription = description == null || t.getDesc().equalsIgnoreCase(description);
+                boolean matchesVendor = vendor == null || t.getVendor().equalsIgnoreCase(vendor);
+                boolean matchesAmount = amount == 0 || t.getAmount() == amount;
+
+                if (dateInRange && matchesDescription && matchesVendor && matchesAmount) {
+                    System.out.printf("Date: %s | Time: %s | Description: %s | Vendor: %s | Amount: %s \n",
+                            t.getDate(), t.getTime(), t.getDesc(), t.getVendor(), t.getAmount());
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Unable to generate report. Let's try again.");
+        }
     }
 }
