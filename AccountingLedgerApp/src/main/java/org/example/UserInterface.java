@@ -18,7 +18,7 @@ public class UserInterface {
         System.out.println("P - Make a Payment");
         System.out.println("L - Open Ledger");
         System.out.println("X - Exit");
-        String userInput = scanner.nextLine();
+        String userInput = scanner.nextLine().toUpperCase();
 
         try{
             switch(userInput){
@@ -62,7 +62,7 @@ public void displayLedgerScreen(){
         System.out.println("P - Show Payments");
         System.out.println("R - Reporting");
         System.out.println("H - Home");
-        String userInput2 = scanner.nextLine();
+        String userInput2 = scanner.nextLine().toUpperCase();
 
         try{
             switch(userInput2){

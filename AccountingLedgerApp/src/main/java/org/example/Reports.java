@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Reports {
     //month to date
@@ -37,6 +39,18 @@ Ledger l = new Ledger();
 
         } catch (FileNotFoundException ex) {
             System.out.println("Could not find the file.");
+
+    static Ledger l = new Ledger();
+    public static void monthToDate() {
+        //declaring the list-
+        List<Transactions> transactions = l.loadTransactions();
+
+        // Sort transactions by date using Collections.sort
+        transactions.sort(Comparator.comparing(Transactions::getDate));
+        // Display the sorted transactions
+        for (Transactions transaction : transactions) {
+            System.out.println(transaction);
+
         }
     }
 
