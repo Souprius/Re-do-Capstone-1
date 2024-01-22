@@ -106,9 +106,10 @@ public void displayReportingScreen(){
         System.out.println("3 - Year to Date");
         System.out.println("4 - Previous Year");
         System.out.println("5 - Search by Vendor");
+        System.out.println("6 - Do a custom search");
         System.out.println("0 - Back to Report page");
         int userInput3 = scanner.nextInt();
-
+        scanner.nextLine();
         try {
             switch (userInput3) {
                 case 1:
@@ -130,6 +131,9 @@ public void displayReportingScreen(){
                     String selection = scanner.nextLine();
 
                     reportings.searchVendor(selection);
+                    break;
+                case 6:
+                    reportings.customSearch();
                     break;
                 case 0:
                     displayReportingScreen();
